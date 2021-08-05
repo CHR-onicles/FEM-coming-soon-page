@@ -114,7 +114,7 @@ input:focus {
     display: none;
 }
 .submit-btn::before {
-    content:"\f058";
+    content: "\f058";
     font-family: "Font Awesome 5 Free";
     font-size: 25px;
     font-weight: 400;
@@ -129,17 +129,14 @@ input:focus {
     height: 30px;
     width: 30px;
 }
-.email-alert {
-    position: relative;
-    font-size: 13px;
-}
 .email-alert::before,
 .email-alert::after {
+    font-size: 13px;
     display: none;
     position: absolute;
     white-space: nowrap;
-    top: -1rem;
-    left: 3.2rem;
+    top: 110%;
+    left: 15%;
 }
 .email-alert::before {
     content: "Invalid email";
@@ -169,7 +166,7 @@ input:focus {
 .input-wrapper.invalid input {
     border: 2px solid var(--clr-alert-danger);
 }
-.input-wrapper.invalid .submit-btn::after{
+.input-wrapper.invalid .submit-btn::after {
     display: inline;
 }
 .attribution {
@@ -255,6 +252,11 @@ input:focus {
     .input-wrapper.invalid .submit-btn {
         top: 0;
         height: 57px;
+    }
+    .email-alert::before,
+    .email-alert::after {
+        top: 85%;
+        left: 8%;
     }
     footer {
         padding: 2vw 0;
