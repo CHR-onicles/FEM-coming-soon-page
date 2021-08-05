@@ -107,6 +107,10 @@ input:focus {
 .submit-btn img {
     margin: 0;
 }
+.submit-btn:active {
+    cursor: pointer;
+    background: hsl(0, 80%, 85%);
+}
 .submit-btn::before,
 .submit-btn::after {
     content: "";
@@ -246,7 +250,6 @@ input:focus {
     }
     .submit-btn:hover {
         cursor: pointer;
-        background: hsl(0, 80%, 85%);
     }
     .input-wrapper.valid .submit-btn,
     .input-wrapper.invalid .submit-btn {
@@ -269,7 +272,7 @@ input:focus {
         height: 100%;
         object-fit: cover;
     }
-    .attribution{
+    .attribution {
         text-align: left;
         margin-left: 10vw;
     }
