@@ -107,6 +107,28 @@ input:focus {
 .submit-btn img {
     margin: 0;
 }
+.submit-btn::before,
+.submit-btn::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.submit-btn::before {
+    content:"\f058";
+    font-family: "Font Awesome 5 Free";
+    font-size: 25px;
+    font-weight: 400;
+    top: 24.5%;
+    right: 118.5%;
+    color: var(--clr-alert-success);
+}
+.submit-btn::after {
+    top: 25%;
+    right: 110%;
+    background: url("./images/icon-error.svg") no-repeat;
+    height: 30px;
+    width: 30px;
+}
 .email-alert {
     position: relative;
     font-size: 13px;
@@ -133,6 +155,9 @@ input:focus {
 .input-wrapper.valid input {
     border: 2px solid var(--clr-alert-success);
 }
+.input-wrapper.valid .submit-btn::before {
+    display: inline;
+}
 .input-wrapper.valid .submit-btn,
 .input-wrapper.invalid .submit-btn {
     top: -31%;
@@ -143,6 +168,9 @@ input:focus {
 }
 .input-wrapper.invalid input {
     border: 2px solid var(--clr-alert-danger);
+}
+.input-wrapper.invalid .submit-btn::after{
+    display: inline;
 }
 .attribution {
     padding: 0.6rem 0;
