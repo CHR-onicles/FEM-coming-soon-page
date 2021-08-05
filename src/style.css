@@ -269,4 +269,8 @@ input:focus {
         height: 100%;
         object-fit: cover;
     }
+    .attribution{
+        text-align: left;
+        margin-left: 10vw;
+    }
 }
