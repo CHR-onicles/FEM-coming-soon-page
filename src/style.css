@@ -1,18 +1,17 @@
 /*================
 FONTS
 /*===============*/
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
 /*================
 GLOBAL VARIABLES
 /*===============*/
 :root {
-    /* Text */
-    --ff-primary: 'Josefin Sans', sans-serif;
+    --ff-primary: "Josefin Sans", sans-serif;
     --ff-size: 16px;
     --clr-desat-red: hsl(0, 36%, 70%);
     --clr-soft-red: hsl(0, 93%, 68%);
     --clr-dark-gray-red: hsl(0, 6%, 24%);
-    --clr-grad-1: linear-gradient(135deg, hsl(0, 0%, 100%),hsl(0, 100%, 98%));
+    --clr-grad-1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
     --clr-grad-2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
 }
 *,
@@ -25,21 +24,22 @@ GLOBAL VARIABLES
 * + * {
     margin-top: 1rem;
 }
-body{
+body {
     background: var(--clr-grad-1);
-}
-main{
     font-family: var(--ff-primary);
     font-size: var(--ff-size);
 }
-img:first-of-type{
+.logo {
     height: 20px;
-    margin: .7rem 0 .7rem 1.8rem;
+    margin: 0.7rem 0 0.7rem 1.8rem;
 }
-img:nth-of-type(2) {
+.mobile-hero {
     width: 100%;
     height: auto; /* maybe not needed */
     margin-bottom: 3rem;
+}
+.desktop-hero {
+    display: none;
 }
 h1 {
     letter-spacing: 10px;
@@ -49,7 +49,8 @@ h1 {
     width: 80%;
     color: var(--clr-dark-gray-red);
 }
-h1 :is(span){ /* prolly overkill but meh */
+h1 :is(span) {
+    /* prolly overkill but meh */
     color: var(--clr-desat-red);
     font-weight: 300;
 }
@@ -63,34 +64,36 @@ p {
     color: var(--clr-desat-red);
     line-height: 1.5em;
 }
-input{
+.input-wrapper {
+    position: relative;
+    margin: 0 auto;
+    max-width: 450px;
+}
+input {
     display: block;
     width: 80%;
-    max-width: 400px;
     /* The above two are needed for margin auto to work (from Stack Overflow)*/
     padding: 1em;
     padding-left: 1.5em;
     margin: 1.5rem auto;
     border-radius: 30px;
-    border: 1px solid hsla(0, 6%, 40%, .3);
+    border: 1px solid hsla(0, 6%, 40%, 0.3);
     background: var(--clr-grad-1);
     color: var(--clr-dark-gray-red);
-}
-input::placeholder{
     font-family: var(--ff-primary);
-    color: hsla(0, 36%, 70%, .5);
 }
-input:focus{
+input::placeholder {
+    color: hsla(0, 36%, 70%, 0.5);
+}
+input:focus {
     outline: none;
     border: 1px solid var(--clr-soft-red);
 }
-.input-wrapper{
-    position: relative;
-}
-.submit-btn{
+.submit-btn {
     position: absolute;
     top: -36%;
     right: 7%;
+    border: none;
     border-radius: 50px;
     width: 65px;
     height: 45px;
@@ -99,18 +102,97 @@ input:focus{
     justify-content: center;
     align-items: center;
 }
-.submit-btn:hover{
-    cursor: pointer;
-}
 .submit-btn img {
     margin: 0;
 }
 .attribution {
-    padding: .6rem 0;
+    padding: 0.6rem 0;
     margin-bottom: 1rem;
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-align: center;
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+@media screen and (min-width: 992px) {
+    * + * {
+        margin-top: 0;
+    }
+    body {
+        height: 100vh;
+        display: grid;
+        grid-template-areas:
+            "logo hero"
+            "text-content hero"
+            "input hero"
+            "footer hero";
+        grid-template-columns: 1.3fr 1fr;
+        grid-template-rows: 0.5fr 2fr .5fr 0.5fr;
+        background: url("./images/bg-pattern-desktop.svg");
+    }
+    .logo{
+        grid-area: logo;
+        height: auto;
+        margin-left: 10vw;
+        margin-top: 4vw;
+    }
+    .mobile-hero {
+        display: none;
+    }
+    .text-wrapper {
+        grid-area: text-content;
+        text-align: left;
+        height: 100%;
+        margin-top: 0;
+    }
+    .text-wrapper * {
+        text-align: left;
+    }
+    .text-wrapper :is(h1, p){
+        margin-left: 10vw;
+    }
+    .text-wrapper h1{
+        font-size: 60px;
+        padding-top: 8vw;
+    }
+    .text-wrapper p{
+        padding-top: 2vw;
+        width: 60%;
+        line-height: 1.7em;
+        font-size: 14px;
+    }
+    .input-wrapper {
+        grid-area: input;
+        width: 54%;
+        max-width: 380px;
+        margin: 0 0 0 10vw;
+    }
+    input{
+        margin-top: 0;
+        padding: 1.1em;
+        padding-left: 2em;
+        width: 100%;
+        font-size: 15px;
+    }
+    .submit-btn{
+        top: 0;
+        right: -3%;
+        height: 50px;
+        width: 90px;
+    }
+    .submit-btn:hover{
+        cursor: pointer;
+        background: hsl(0, 80%, 85%);
+    }
+    footer {
+        padding: 2vw 0;
+        grid-area: footer;
+    }
+    .desktop-hero {
+        display: inline;
+        grid-area: hero;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
