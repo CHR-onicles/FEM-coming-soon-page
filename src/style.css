@@ -49,8 +49,7 @@ h1 {
     width: 80%;
     color: var(--clr-dark-gray-red);
 }
-h1 :is(span) {
-    /* prolly overkill but meh */
+h1 span {
     color: var(--clr-desat-red);
     font-weight: 300;
 }
@@ -91,12 +90,12 @@ input:focus {
 }
 .submit-btn {
     position: absolute;
-    top: -36%;
+    top: -39%;
     right: 7%;
     border: none;
     border-radius: 50px;
     width: 65px;
-    height: 45px;
+    height: 42px;
     background: var(--clr-grad-2);
     display: flex;
     justify-content: center;
@@ -127,10 +126,10 @@ input:focus {
             "input hero"
             "footer hero";
         grid-template-columns: 1.3fr 1fr;
-        grid-template-rows: 0.5fr 2fr .5fr 0.5fr;
+        grid-template-rows: 0.5fr 2fr 0.5fr 0.5fr;
         background: url("./images/bg-pattern-desktop.svg");
     }
-    .logo{
+    .logo {
         grid-area: logo;
         height: auto;
         margin-left: 10vw;
@@ -148,14 +147,15 @@ input:focus {
     .text-wrapper * {
         text-align: left;
     }
-    .text-wrapper :is(h1, p){
+    .text-wrapper :is(h1, p) {
         margin-left: 10vw;
     }
-    .text-wrapper h1{
+    .text-wrapper h1 {
+        width: 50%;
         font-size: 60px;
         padding-top: 8vw;
     }
-    .text-wrapper p{
+    .text-wrapper p {
         padding-top: 2vw;
         width: 60%;
         line-height: 1.7em;
@@ -167,20 +167,20 @@ input:focus {
         max-width: 380px;
         margin: 0 0 0 10vw;
     }
-    input{
+    input {
         margin-top: 0;
         padding: 1.1em;
         padding-left: 2em;
         width: 100%;
         font-size: 15px;
     }
-    .submit-btn{
+    .submit-btn {
         top: 0;
         right: -3%;
         height: 50px;
         width: 90px;
     }
-    .submit-btn:hover{
+    .submit-btn:hover {
         cursor: pointer;
         background: hsl(0, 80%, 85%);
     }
