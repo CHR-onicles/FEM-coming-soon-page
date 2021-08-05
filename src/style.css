@@ -13,6 +13,8 @@ GLOBAL VARIABLES
     --clr-dark-gray-red: hsl(0, 6%, 24%);
     --clr-grad-1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
     --clr-grad-2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    --clr-alert-success: hsl(120, 81%, 39%);
+    --clr-alert-danger: hsl(0, 73%, 68%);
 }
 *,
 *::before,
@@ -80,6 +82,7 @@ input {
     background: var(--clr-grad-1);
     color: var(--clr-dark-gray-red);
     font-family: var(--ff-primary);
+    line-height: 1.5em;
 }
 input::placeholder {
     color: hsla(0, 36%, 70%, 0.5);
@@ -90,12 +93,12 @@ input:focus {
 }
 .submit-btn {
     position: absolute;
-    top: -39%;
+    top: -33%;
     right: 7%;
     border: none;
     border-radius: 50px;
     width: 65px;
-    height: 42px;
+    height: 48px;
     background: var(--clr-grad-2);
     display: flex;
     justify-content: center;
@@ -103,6 +106,43 @@ input:focus {
 }
 .submit-btn img {
     margin: 0;
+}
+.email-alert {
+    position: relative;
+    font-size: 13px;
+}
+.email-alert::before,
+.email-alert::after {
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    top: -1rem;
+    left: 3.2rem;
+}
+.email-alert::before {
+    content: "Invalid email";
+    color: var(--clr-alert-danger);
+}
+.email-alert::after {
+    content: "Your email is valid";
+    color: var(--clr-alert-success);
+}
+.input-wrapper.valid .email-alert::after {
+    display: inline;
+}
+.input-wrapper.valid input{
+    border: 2px solid var(--clr-alert-success);
+}
+.input-wrapper.valid .submit-btn,
+.input-wrapper.invalid .submit-btn{
+    top: -31%;
+    height: 50px;
+}
+.input-wrapper.invalid .email-alert::before {
+    display: inline;
+}
+.input-wrapper.invalid input {
+    border: 2px solid var(--clr-alert-danger);
 }
 .attribution {
     padding: 0.6rem 0;
@@ -133,7 +173,7 @@ input:focus {
         grid-area: logo;
         height: auto;
         margin-left: 10vw;
-        margin-top: 4vw;
+        margin-top: 5vw;
     }
     .mobile-hero {
         display: none;
@@ -165,11 +205,10 @@ input:focus {
         grid-area: input;
         width: 54%;
         max-width: 380px;
-        margin: 0 0 0 10vw;
+        margin: 1.5vw 0 0 10vw;
     }
     input {
         margin-top: 0;
-        padding: 1.1em;
         padding-left: 2em;
         width: 100%;
         font-size: 15px;
@@ -177,7 +216,7 @@ input:focus {
     .submit-btn {
         top: 0;
         right: -3%;
-        height: 50px;
+        height: 54px;
         width: 90px;
     }
     .submit-btn:hover {
