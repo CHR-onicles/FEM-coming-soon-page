@@ -130,11 +130,11 @@ input:focus {
 .input-wrapper.valid .email-alert::after {
     display: inline;
 }
-.input-wrapper.valid input{
+.input-wrapper.valid input {
     border: 2px solid var(--clr-alert-success);
 }
 .input-wrapper.valid .submit-btn,
-.input-wrapper.invalid .submit-btn{
+.input-wrapper.invalid .submit-btn {
     top: -31%;
     height: 50px;
 }
@@ -222,6 +222,11 @@ input:focus {
     .submit-btn:hover {
         cursor: pointer;
         background: hsl(0, 80%, 85%);
+    }
+    .input-wrapper.valid .submit-btn,
+    .input-wrapper.invalid .submit-btn {
+        top: 0;
+        height: 57px;
     }
     footer {
         padding: 2vw 0;
